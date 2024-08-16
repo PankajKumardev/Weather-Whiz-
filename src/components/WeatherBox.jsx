@@ -40,7 +40,7 @@ export const WeatherBox = () => {
     };
 
     return (
-        <div className="h-96 w-96 border-box rounded-lg border-2 border-slate-600 p-4 bg-[#08090A]">
+        <div className="h-96 w-96 border-2 border-slate-600 rounded-lg p-4 bg-[#08090A] mx-auto">
             <div className="flex flex-col items-center">
                 <input
                     required
@@ -56,14 +56,12 @@ export const WeatherBox = () => {
                     Get Weather
                 </button>
                 
-                { (weather) ? (
-                    <div className="mt-10 mr-4 text-slate-200 text-center flex items-center space-x-4">
-                       
+                { weather ? (
+                    <div className="mt-10  text-slate-200 text-center flex flex-col items-center space-y-4">
                         {weatherIcon && (
                             <img src={weatherIcon} alt="Weather Icon" className="w-20 h-20" />
                         )}
-
-                        <div className="flex flex-col gap-1">
+                        <div className="text-sm sm:text-base">
                             <p>Temperature: {weather.main.temp}°C</p>
                             <p>Weather: {weather.weather[0].description}</p>
                             <p>City: {weather.name}</p>
@@ -71,8 +69,7 @@ export const WeatherBox = () => {
                         </div>
                     </div>
                 ) : (
-                
-                    error && <p className="text-red-500 mt-4">{error}</p>
+                    error && <p className="text-red-500 mt-4 text-center">{error}</p>
                 )}
             </div>
         </div>
