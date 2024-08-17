@@ -40,7 +40,7 @@ export const WeatherBox = () => {
     };
 
     return (
-        <div className="h-96 w-96 border-2 border-slate-600 rounded-lg p-4 bg-[#08090A] mx-auto">
+        <div className="h-[450px] w-full border-2 border-slate-600 rounded-lg p-4 bg-[#08090A] mx-auto">
             <div className="flex flex-col items-center">
                 <input
                     required
@@ -57,17 +57,30 @@ export const WeatherBox = () => {
                 </button>
                 
                 { weather ? (
-                    <div className="mt-10  text-slate-200 text-center flex flex-col items-center space-y-4">
-                        {weatherIcon && (
-                            <img src={weatherIcon} alt="Weather Icon" className="w-20 h-20" />
-                        )}
-                        <div className="text-sm sm:text-base">
-                            <p>Temperature: {weather.main.temp}°C</p>
-                            <p>Weather: {weather.weather[0].description}</p>
-                            <p>City: {weather.name}</p>
-                            <p>Country: {weather.sys.country}</p>
-                        </div>
-                    </div>
+                   <div className=" text-slate-200 text-center flex flex-col items-center space-y-6">
+                   {weatherIcon && (
+                     <img
+                       src={weatherIcon}
+                       alt="Weather Icon"
+                       className="w-24 h-20 sm:w-32 sm:h-32 object-contain "
+                     />
+                   )}
+                   <div className="text-sm sm:text-base space-y-2">
+                     <p className="text-lg sm:text-xl font-semibold">
+                       Temperature: <span className="text-[#ffbb00]">{weather.main.temp}°C</span>
+                     </p>
+                     <p className="text-lg sm:text-xl font-semibold">
+                       Weather: <span className="text-[#00aaff] capitalize">{weather.weather[0].description}</span>
+                     </p>
+                     <p className="text-lg sm:text-xl font-semibold">
+                       City: <span className="text-[#ff6f61]">{weather.name}</span>
+                     </p>
+                     <p className="text-lg sm:text-xl font-semibold">
+                       Country: <span className="text-[#4caf50]">{weather.sys.country}</span>
+                     </p>
+                   </div>
+                 </div>
+                 
                 ) : (
                     error && <p className="text-red-500 mt-4 text-center">{error}</p>
                 )}
