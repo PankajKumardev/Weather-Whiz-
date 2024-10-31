@@ -1,10 +1,11 @@
 import './App.css';
 import { WeatherBox } from './components/WeatherBox';
-import {Analytics } from "@vercel/analytics";
+import { Analytics } from "@vercel/analytics/react"
+
 function App() {
   return (
     <div className='flex flex-col justify-center items-center min-h-screen p-4 bg-[#08090A]'>
-       <Analytics/>
+      <Analytics/>
       <h2 className="my-10 sm:my-16 text-2xl sm:text-3xl lg:text-5xl text-center font-bold">
   <span className='text-[#00aaff]'>Weather Whiz</span><br />
   <span className='text-[#ffbb00]'>Your Climate Companion</span> 🌤️
